@@ -1,0 +1,13 @@
+<h4 class="mt-4">The Dining Room</h4>
+<ul class="mt-4">
+    <li class="nav-link" [routerLink]="['/home']">Home</li>
+    <hr>
+    <li class="nav-link"[routerLink]="['/restaurants']">Restaurants</li>
+    <hr>
+    <div *ngFor="let cuisine of cuisines">
+        <li class="nav-link"[routerLink]="['/restaurants', cuisine]">{{cuisine}}</li>
+    </div>
+    <hr>
+    <li class="nav-link"[routerLink]="['/about']">About</li> 
+</ul>
+

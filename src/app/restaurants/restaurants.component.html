@@ -1,0 +1,26 @@
+<div class="container-fluid mt-3">
+    <div class="row">   
+        <div class="col-6">
+            <ngb-pagination
+                [(page)]="parameters.page"
+                [pageSize]="parameters.pageSize"
+                [collectionSize]="count"
+                (pageChange)="refreshRestaurants()"
+            >
+            </ngb-pagination>
+        </div> 
+        <div class="col-6">
+            <div class="form-inline">
+                <label class="mr-2">Price range: </label>
+                <input type="number" class="form-control mr-2" [(ngModel)]="parameters.filter.priceFrom" (change)="refreshRestaurants()">
+                <input type="number" class="form-control" [(ngModel)]="parameters.filter.priceTo" (change)="refreshRestaurants()">
+            </div>
+        </div>       
+    </div>
+    <div class="row">
+        <div class="col-4" *ngFor="let restaurant of restaurants">
+            <app-restaurant-list-item [restaurant]="restaurant">              
+            </app-restaurant-list-item>    
+        </div>
+    </div>       
+</div>

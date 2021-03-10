@@ -1,0 +1,36 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title audit-block">{{restaurant.name}}<br>
+      <h5 class="text-success"><i class="fa fa-map-marker"></i> {{restaurant.location}}</h5>
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="row mb-4">
+      <div class="col-md-6 offset-md-3">
+        <h6 class="text-center">Working Hours</h6>
+        <div *ngFor="let item of restaurant.days | keyvalue">
+          <div class="text-secondary" [ngSwitch]="item.key">
+            <span *ngSwitchCase="1">Monday</span>
+            <span *ngSwitchCase="2">Tuesday</span>
+            <span *ngSwitchCase="3">Wednesday</span>
+            <span *ngSwitchCase="4">Thursday</span>
+            <span *ngSwitchCase="5">Friday</span>
+            <span *ngSwitchCase="6">Saturday</span>
+            <span *ngSwitchCase="7">Sunday</span>
+            <span class="pull-right"> {{item.value.opens}} - {{item.value.closes}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-group-item list-group-item-action active">
+      Name<span class="pull-right">Price</span>
+    </div>
+    <div *ngFor="let item of menus">
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action">
+          {{item.name}} <span class="badge badge-pill badge-primary pull-right">{{item.price}}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
